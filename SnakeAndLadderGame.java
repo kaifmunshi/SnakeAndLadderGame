@@ -30,15 +30,58 @@ public class SnakeAndLadderGame {
 
     private static void initializeBoard() {
         // Pre-defined snakes and ladders
-        snakes.put(14, 7);
-        snakes.put(31, 26);
-        snakes.put(77, 35);
-        snakes.put(99, 63);
+        // entering the pre defined values
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the number of snakes you want to add in board");
+        int number_of_snakes = sc.nextInt();
+        System.out.println("Entering the intial start and end values of snake");
+        for(int i = 0;i<number_of_snakes;i++)
+        {
+            System.out.println("Enter the start value of snake");
+            int snake_start = sc.nextInt();
+            System.out.println("Enter the end value of snake");
+            int snake_end = sc.nextInt();
+            if(snake_start>snake_end)
+            {
+                snakes.put(snake_start, snake_end);
+            }
+            else
+            {
+                System.out.println("INCORRECT VALUES .... Please enter the correct values");
+                i = i - 1;
+                continue;
+            }
+
+            
+
+        }
         
-        ladders.put(3, 22);
-        ladders.put(8, 29);
-        ladders.put(28, 84);
-        ladders.put(58, 77);
+        //snakes.put(14, 7);
+        System.out.println("Enter the number of ladders you want to add in board");
+        int number_of_ladders = sc.nextInt();
+        System.out.println("Entering the ladders in the board");
+        for(int i = 0;i<number_of_ladders;i++)
+        {
+            System.out.println("Enter the start value of ladder");
+            int ladder_start = sc.nextInt();
+            System.out.println("Enter the end value of ladder");
+            int ladder_end = sc.nextInt();
+            if(ladder_start<ladder_end)
+            {
+                ladders.put(ladder_start, ladder_end);
+            }
+            else
+            {
+                System.out.println("INCORRECT VALUES .... Please enter the correct values");
+                i = i - 1;
+                continue;
+            }
+            
+        }
+
+
+        //ladders.put(3, 22);
+        
     }
 
     private static void playGame() {
